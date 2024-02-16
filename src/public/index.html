@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My01</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/base-64@1.0.0/base64.min.js"></script>
+    <style>
+        body {
+            flex-direction: column;
+            align-items: self-start;
+            justify-content: space-around;
+            height: 100vh;
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            padding: 5px;
+        }
+
+        main {
+            background-color: var(--background);
+            border-radius: 10px;
+            padding: 20px 0;
+            width: 55%;
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Login</h1>
+        <form class="login-form" method="post">
+            <input type="text" class="username" name="username" placeholder="username">
+            <input type="password" class="password name=" password" placeholder="password">
+            <input class="button" type="submit" value="LOGIN">
+
+        </form>
+        <div class="snackbar"></div>
+
+        <script type="module">
+            import { run } from "./scripts/main.js"
+            run()
+        </script>
+
+
+    </main>
+</body>
+
+</html>

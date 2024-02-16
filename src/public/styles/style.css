@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sixtyfour&display=swap');
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+}
+
+:root {
+  --primary-color: #161616;
+  --background: #242323b7;
+  --secondary-color: #346751;
+  --accent-color: #C84B31;
+  --text-color: #ECDBBA;
+  --warning-color: #F28585;
+}
+
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.sixtyfour-span {
+  font-family: "Sixtyfour", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+}
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.chakra-petch-bold-italic {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+header {
+  background-color: var(--background);
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+section {
+  margin: 2px
+}
+
+header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  color: var(--text-color);
+  gap: .8rem;
+}
+
+h1.logo {
+  padding: 1rem;
+}
+
+h1 .bebas-neue-regular {
+  color: var(--accent-color);
+}
+
+h1 span.logo {
+  color: var(--secondary-color);
+}
+
+.chakra-petch-semibold {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.material-symbols-outlined {
+  color: var(--accent-color);
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+body {
+  background-color: var(--primary-color);
+  display: flex;
+  color: var(--text-color);
+  flex-direction: column;
+  width: 100%;
+
+}
+
+main {
+  background-color: var(--background);
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    outline: none;
+    background: transparent;
+    color: var(--text-color);
+  }
+
+  input:focus {
+    border-color: var(--accent-color);
+
+    ::placeholder {
+      color: var(--accent-color);
+    }
+  }
+
+  input:focus::placeholder {
+    color: var(--accent-color);
+  }
+
+  .button {
+    width: fit-content;
+    background-color: var(--accent-color);
+    cursor: pointer;
+    border: none;
+  }
+}
+
+.wlc-msg {
+  width: 100%;
+  font-size: large;
+  padding: 2rem;
+  border-bottom: 5px solid var(--primary-color);
+
+  p {
+    padding: 0 1rem;
+  }
+}
+
+.wlc-msg h2 {
+  color: var(--secondary-color);
+
+  .name {
+    color: var(--accent-color)
+  }
+
+}
+
+.stat-title{
+  padding: 1rem;
+  padding-left: 5px;
+  padding-bottom: 0;
+  color:var(--text-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.stat{
+  padding:2rem;
+
+  ul{
+    list-style-type: none;
+
+  }
+  label{
+    color: var(--secondary-color);
+    font-weight: bolder;
+  }
+  .value{
+    padding: .2rem;
+    color: var(--accent-color);
+  }
+}
+
+
+
+
+.snackbar {
+  position: absolute;
+  visibility: hidden;
+  top: 5%;
+  right: 2%;
+  background-color: var(--warning-color);
+  color: var(--text-color);
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px var(--background);
+  z-index: 1000;
+  height: fit-content;
+}
+
+.snackbar.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
