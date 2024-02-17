@@ -45,7 +45,7 @@ class PieChart extends HTMLElement {
     // We prepare the parameters
     const donut = this.getAttribute('donut') ?? '0.005'
     const gap = this.getAttribute('gap') ?? '0.015'
-    const colors = this.getAttribute('colors')?.split(';') ?? ['#FAAA32', '#3EFA7D', '#FA6A25', '#0C94FA', '#FA1F19', '#0CFAE2', '#AB6D23'];
+    const colors = this.getAttribute('colors')?.split(';') ?? ['#346751', '#C84B31', '#ECDBBA', '#F28585', '#FA1F19', '#0CFAE2', '#AB6D23'];
     this.data = this.getAttribute('data').split(';').map(v => parseFloat(v))
     const labels = this.getAttribute('labels')?.split(';') ?? []
 
@@ -201,7 +201,7 @@ class BarChart extends HTMLElement {
     this.data = this.getAttribute('data').split(';').map(Number);
     this.chartHeight = Math.max(...this.data);
 
-    const colors = this.getAttribute('colors')?.split(';') ?? ['#FAAA32', '#3EFA7D', '#FA6A25', '#0C94FA', '#FA1F19', '#0CFAE2', '#AB6D23'];
+    const colors = this.getAttribute('colors')?.split(';') ?? ['#346751', '#C84B31', '#ECDBBA', '#F28585', '#FA1F19', '#0CFAE2', '#AB6D23'];
     const labels = this.getAttribute('labels')?.split(';') || [];
 
     const container = document.createElement('div');
@@ -217,7 +217,7 @@ class BarChart extends HTMLElement {
       rect.setAttribute('width', rectWidth + '%');
       rect.setAttribute('y', "500");
       rect.setAttribute('height', 0);
-      rect.setAttribute('fill', colors[index % colors.length] || '#3498db');
+      rect.setAttribute('fill', colors[index % colors.length] || '#C84B31');
 
       const labelDiv = document.createElement('div');
       labelDiv.innerText = labels[index] || '';
@@ -231,6 +231,8 @@ class BarChart extends HTMLElement {
       labelDiv.style.textOverflow = 'ellipsis';
       labelDiv.style.whiteSpace = 'nowrap';
       labelDiv.style.transition = 'opacity 0.3s';
+      labelDiv.style.backgroundColor = 'var(--background)'
+
 
       container.appendChild(labelDiv);
       svg.appendChild(rect);
@@ -270,7 +272,7 @@ class BarChart extends HTMLElement {
       }
 
       rect:hover {
-        fill: #2980b9;
+        fill: #C84B31;
       }
     `;
 
@@ -307,7 +309,7 @@ class BarChart extends HTMLElement {
 
   handleRectHover(rect, labelDiv) {
     labelDiv.style.opacity = '1';
-    rect.style.fill = '#2980b9';
+    rect.style.fill = '#C84B31';
   }
 
   handleRectOut(rect, labelDiv) {
@@ -328,7 +330,7 @@ class RadarChart extends HTMLElement {
     const labels = this.getAttribute('labels').split(';');
     const ids = this.getAttribute('ids')?.split(';');
     const max = parseFloat(this.getAttribute('max')) || 1.0;
-    const colors = this.getAttribute('colors')?.split(';') ?? ['#FAAA32', '#3EFA7D', '#FA6A25', '#0C94FA', '#FA1F19', '#0CFAE2', '#AB6D23'];
+    const colors = this.getAttribute('colors')?.split(';') ?? ['#346751', '#C84B31', '#ECDBBA', '#F28585', '#FA1F19', '#0CFAE2', '#AB6D23'];
 
     // Constants
     const width = this.getAttribute('width') ?? 200; // Adjust as needed
@@ -376,14 +378,14 @@ class RadarChart extends HTMLElement {
     this.svg.appendChild(measureGroup);
 
     // Draw frame of the chart and set styles
-    const poly = this.polygon({ stroke: '#3498db', 'stroke-width': '2', 'fill': 'white' }, this.points);
+    const poly = this.polygon({ stroke: '#C84B31', 'stroke-width': '2', 'fill': '#161616' }, this.points);
     this.svg.appendChild(poly);
 
     // Draw chart
     const pathString = this.pathString(center_x, center_y, this.points, scores);
     const chartPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     chartPath.setAttribute('d', pathString);
-    chartPath.setAttribute('fill', '#999');
+    chartPath.setAttribute('fill', '#346751');
     chartPath.setAttribute('stroke-width', '.5');
     chartPath.setAttribute('stroke', 'white');
     this.svg.appendChild(chartPath);
@@ -397,7 +399,7 @@ class RadarChart extends HTMLElement {
       text.setAttribute('x', x);
       text.setAttribute('y', y);
       text.setAttribute('font-size', '8');
-      text.setAttribute('fill', 'black');
+      text.setAttribute('fill', 'white');
       text.textContent = labels[i];
       this.svg.appendChild(text);
     }
@@ -426,7 +428,7 @@ class RadarChart extends HTMLElement {
           text.setAttribute('x', x);
           text.setAttribute('y', y);
           text.setAttribute('font-size', '0');
-          text.setAttribute('fill', 'black');
+          text.setAttribute('fill', '#C84B31');
           text.setAttribute('opacity', '0');
           text.textContent = circle.dataset.score;
           circle.addEventListener('mouseover', () => this.handleCircleMouseOver(circle, text));

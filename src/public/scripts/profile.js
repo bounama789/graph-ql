@@ -74,7 +74,7 @@ export async function fetchUserData() {
                       login
                     }
                   }
-                  object {
+                  object {  
                     name
                   }
                   auditors(where:{grade: {_is_null: false}}) {
@@ -150,6 +150,7 @@ export async function fetchUserData() {
   displayXp(xps);
   displaySkills(skills);
   displayDownUpRatio(result.user[0].totalUp, result.user[0].totalDown);
+  renderInfos(result.user[0])
 }
 
 
@@ -174,7 +175,7 @@ function displayDownUpRatio(up, down) {
 function displaySkills(data) {
   const skillDiv = document.getElementById("skills");
   data.forEach((d) => {
-    skillDiv.innerHTML += `<div><b>${d.type.replace("skill_", "").toUpperCase()}</b>: ${d.amount}</div>`
+    skillDiv.innerHTML += `<div class="value"><b class="label">${d.type.replace("skill_", "").toUpperCase()}</b>: ${d.amount}</div>`
   });
 }
 
