@@ -1,6 +1,6 @@
-import { GraphQLClient } from "../../lib/graphql-client.js"
-import { EndPoint } from "../../lib/constant.js"
-import { getGroups, countInteractions, getXPS } from "../../lib/utils.js";
+import { GraphQLClient } from "../lib/graphql-client.js"
+import { EndPoint } from "../lib/constant.js"
+import { getGroups, countInteractions, getXPS } from "../lib/utils.js";
 
 export function run() {
   window.addEventListener("DOMContentLoaded", async () => {

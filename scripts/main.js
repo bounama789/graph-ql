@@ -1,5 +1,4 @@
-import { EndPoint } from "../../lib/constant.js";
-import { GraphQLClient } from "../../lib/graphql-client.js";
+import { EndPoint } from "../lib/constant.js";
 
 
 export function run() {
